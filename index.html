@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-button" aria-label="Menu" id="mobile-menu-toggle">
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                </button>
+                <div class="user-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#666">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                    </svg>
+                </div>
+                <input type="text" class="search-input" placeholder="Search...">
+            </div>
+            <div class="header-right">
+                <button class="icon-button help-button" aria-label="Help">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path>
+                    </svg>
+                </button>
+                <button class="icon-button settings-button" aria-label="Settings">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="nav-tabs" id="main-nav">
+            <button class="nav-tab active">Dashboard</button>
+            <button class="nav-tab">Target</button>
+            <a href="charts.html"><button class="nav-tab">Charts</button></a>
+            <a href="news.html"><button class="nav-tab">News</button></a>
+            <a href="about.html"><button class="nav-tab">About Us</button></a>
+            <a href="contact.html"><button class="nav-tab">Contact</button></a>
+        </nav>
+
+        <main class="content">
+            <div class="content-top">
+                <section class="widget bar-chart-widget">
+                    <h2 class="widget-title">Lorem Ipsum</h2>
+                    <p class="widget-subtitle">Lorem ipsum</p>
+                    
+                    <div class="bar-chart">
+                        <div class="bar-row">
+                            <span class="bar-label">70%</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">90%</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">60%</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">40%</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 40%"></div>
+                            </div>
+                        </div>
+                        <div class="bar-row">
+                            <span class="bar-label">30%</span>
+                            <div class="bar-container">
+                                <div class="bar" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="widget stats-widget">
+                    <h2 class="widget-title">Lorem Ipsum</h2>
+                    
+                    <div class="stats-list">
+                        <div class="stat-item">
+                            <div class="stat-value">37 <span class="stat-change positive">(+4)</span></div>
+                            <div class="stat-indicator">
+                                <span class="arrow up"></span>
+                                <span class="indicator-value">357</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">67 <span class="stat-change negative">(-5)</span></div>
+                            <div class="stat-indicator">
+                                <span class="arrow down"></span>
+                                <span class="indicator-value">426</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">47 <span class="stat-change positive">(+4)</span></div>
+                            <div class="stat-indicator">
+                                <span class="arrow up"></span>
+                                <span class="indicator-value">346</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">35 <span class="stat-change negative">(-9)</span></div>
+                            <div class="stat-indicator">
+                                <span class="arrow down"></span>
+                                <span class="indicator-value">856</span>
+                            </div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">22 <span class="stat-change positive">(+2)</span></div>
+                            <div class="stat-indicator">
+                                <span class="arrow up"></span>
+                                <span class="indicator-value">235</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="widget percentage-widget">
+                    <h2 class="widget-title">Lorem Ipsum</h2>
+                    <p class="widget-subtitle">Lorem ipsum</p>
+                    
+                    <div class="percentage-display">
+                        <div class="percentage-value">37%</div>
+                        <div class="wave-chart">
+                            <svg viewBox="0 0 300 100" preserveAspectRatio="none">
+                                <path d="M0,50 C50,30 100,60 150,40 C200,20 250,50 300,30 L300,100 L0,100 Z" fill="url(#wave-gradient)" />
+                                <defs>
+                                    <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" stop-color="#00E5FF" stop-opacity="1" />
+                                        <stop offset="100%" stop-color="#0066FF" stop-opacity="0.5" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <section class="widget line-chart-widget">
+    <h2 class="widget-title">Performance Metrics</h2>
+    <p class="widget-subtitle">Monthly trends</p>
+    
+    <div class="chart-legend">
+        <div class="legend-item">
+            <span class="legend-color solid"></span>
+            <span class="legend-label">Revenue</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-color dashed"></span>
+            <span class="legend-label">Conversions</span>
+        </div>
+    </div>
+    
+    <div class="chart-container">
+        <div class="line-chart">
+            <div class="y-axis">
+                <div class="y-label">100</div>
+                <div class="y-label">90</div>
+                <div class="y-label">80</div>
+                <div class="y-label">70</div>
+                <div class="y-label">60</div>
+                <div class="y-label">50</div>
+                <div class="y-label">40</div>
+                <div class="y-label">30</div>
+                <div class="y-label">20</div>
+                <div class="y-label">10</div>
+                <div class="y-label">0</div>
+            </div>
+            <div class="chart-area">
+                <div class="grid-lines">
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                </div>
+                <svg class="chart-svg" viewBox="0 0 600 300" preserveAspectRatio="none">
+                    <!-- Area under solid line -->
+                    <path class="area-fill solid-area" d="M0,100 C100,150 200,250 300,150 C400,50 500,100 600,100 L600,300 L0,300 Z" fill="url(#solid-gradient)" opacity="0.3" />
+                    
+                    <!-- Area under dashed line -->
+                    <path class="area-fill dashed-area" d="M0,250 C100,200 200,250 300,100 C400,50 500,150 600,150 L600,300 L0,300 Z" fill="url(#dashed-gradient)" opacity="0.2" />
+                    
+                    <!-- Solid line -->
+                    <path class="line solid" d="M0,100 C100,150 200,250 300,150 C400,50 500,100 600,100" fill="none" stroke="url(#line-gradient-solid)" stroke-width="3" />
+                    
+                    <!-- Dashed line -->
+                    <path class="line dashed" d="M0,250 C100,200 200,250 300,100 C400,50 500,150 600,150" fill="none" stroke="url(#line-gradient-dashed)" stroke-width="3" stroke-dasharray="5,5" />
+                    
+                    <!-- Gradients -->
+                    <defs>
+                        <linearGradient id="solid-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.7" />
+                            <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.1" />
+                        </linearGradient>
+                        
+                        <linearGradient id="dashed-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" stop-color="#4FACFE" stop-opacity="0.7" />
+                            <stop offset="100%" stop-color="#4FACFE" stop-opacity="0.1" />
+                        </linearGradient>
+                        
+                        <linearGradient id="line-gradient-solid" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#00E5FF" />
+                            <stop offset="100%" stop-color="#00BFFF" />
+                        </linearGradient>
+                        
+                        <linearGradient id="line-gradient-dashed" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#4FACFE" />
+                            <stop offset="100%" stop-color="#00F2FE" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Data points for solid line with pulse animation -->
+                    <circle class="data-point solid-point" cx="0" cy="100" r="6" fill="#00E5FF" data-value="70" />
+                    <circle class="data-point solid-point" cx="300" cy="150" r="6" fill="#00E5FF" data-value="50" />
+                    <circle class="data-point solid-point" cx="600" cy="100" r="6" fill="#00E5FF" data-value="70" />
+                    
+                    <!-- Data points for dashed line with pulse animation -->
+                    <circle class="data-point dashed-point" cx="300" cy="100" r="6" fill="#4FACFE" data-value="67" />
+                    <circle class="data-point dashed-point" cx="450" cy="75" r="6" fill="#4FACFE" data-value="75" />
+                    <circle class="data-point dashed-point" cx="600" cy="150" r="6" fill="#4FACFE" data-value="50" />
+                </svg>
+                
+                <!-- Tooltip that will be shown on hover -->
+                <div class="chart-tooltip" id="chart-tooltip">
+                    <div class="tooltip-date">Month: <span id="tooltip-date">Jan</span></div>
+                    <div class="tooltip-value">Value: <span id="tooltip-value">75</span></div>
+                </div>
+                
+                <div class="x-axis">
+                    <div class="x-label">Jan</div>
+                    <div class="x-label">Feb</div>
+                    <div class="x-label">Mar</div>
+                    <div class="x-label">Apr</div>
+                    <div class="x-label">May</div>
+                    <div class="x-label">Jun</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

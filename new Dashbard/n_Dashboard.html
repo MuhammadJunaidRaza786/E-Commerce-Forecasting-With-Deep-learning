@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analytics Dashboard</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="dashboard">
+      <header class="header">
+        <div class="header-left">
+          <button class="menu-button" aria-label="Menu" id="mobile-menu-toggle">
+            <span class="menu-icon"></span>
+            <span class="menu-icon"></span>
+            <span class="menu-icon"></span>
+          </button>
+          <div class="user-icon">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+              <path
+                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+        <div class="search-container">
+          <div class="search-icon">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="#666">
+              <path
+                d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+              ></path>
+            </svg>
+          </div>
+          <input type="text" class="search-input" placeholder="Search..." />
+        </div>
+        <div class="header-right">
+          <button class="icon-button help-button" aria-label="Help">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+              ></path>
+            </svg>
+          </button>
+          <button class="icon-button settings-button" aria-label="Settings">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+              <path
+                d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <nav class="nav-tabs" id="main-nav">
+        <button class="nav-tab active">Dashboard</button>
+        <button class="nav-tab">Target</button>
+        <a href="charts.html"><button class="nav-tab">Charts</button></a>
+        <a href="news.html"><button class="nav-tab">News</button></a>
+        <button class="nav-tab">Messages</button>
+        <button class="nav-tab">Network</button>
+      </nav>
+
+      <main class="content">
+        <div class="content-top">
+          <section class="widget donut-chart-widget">
+            <h2 class="widget-title">Revenue Distribution</h2>
+            <p class="widget-subtitle">By product category</p>
+
+            <div class="donut-container">
+              <div class="donut-chart">
+                <svg viewBox="0 0 100 100" class="donut">
+                  <circle
+                    class="donut-hole"
+                    cx="50"
+                    cy="50"
+                    r="30"
+                    fill="#2A1E5C"
+                  ></circle>
+                  <circle
+                    class="donut-ring"
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="transparent"
+                    stroke="#2A1E5C"
+                    stroke-width="10"
+                  ></circle>
+
+                  <!-- Donut segments -->
+                  <circle
+                    class="donut-segment"
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="transparent"
+                    stroke="#00E5FF"
+                    stroke-width="10"
+                    stroke-dasharray="40 60"
+                    stroke-dashoffset="0"
+                    data-value="40"
+                    data-label="Electronics"
+                  ></circle>
+                  <circle
+                    class="donut-segment"
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="transparent"
+                    stroke="#4FACFE"
+                    stroke-width="10"
+                    stroke-dasharray="25 75"
+                    stroke-dashoffset="40"
+                    data-value="25"
+                    data-label="Clothing"
+                  ></circle>
+                  <circle
+                    class="donut-segment"
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="transparent"
+                    stroke="#00F2FE"
+                    stroke-width="10"
+                    stroke-dasharray="20 80"
+                    stroke-dashoffset="65"
+                    data-value="20"
+                    data-label="Home"
+                  ></circle>
+                  <circle
+                    class="donut-segment"
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="transparent"
+                    stroke="#0066FF"
+                    stroke-width="10"
+                    stroke-dasharray="15 85"
+                    stroke-dashoffset="85"
+                    data-value="15"
+                    data-label="Other"
+                  ></circle>
+                </svg>
+
+                <div class="donut-center">
+                  <div class="donut-value">40%</div>
+                  <div class="donut-label">Electronics</div>
+                </div>
+              </div>
+
+              <div class="donut-legend">
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #00e5ff"
+                  ></span>
+                  <span class="legend-label">Electronics</span>
+                  <span class="legend-value">40%</span>
+                </div>
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #4facfe"
+                  ></span>
+                  <span class="legend-label">Clothing</span>
+                  <span class="legend-value">25%</span>
+                </div>
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #00f2fe"
+                  ></span>
+                  <span class="legend-label">Home</span>
+                  <span class="legend-value">20%</span>
+                </div>
+                <div class="legend-item">
+                  <span
+                    class="legend-color"
+                    style="background-color: #0066ff"
+                  ></span>
+                  <span class="legend-label">Other</span>
+                  <span class="legend-value">15%</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="widget bar-chart-widget">
+            <h2 class="widget-title">Monthly Sales Growth</h2>
+            <p class="widget-subtitle">Year-over-year comparison</p>
+
+            <div class="bar-chart-container">
+              <div class="y-axis">
+                <div class="y-label">100%</div>
+                <div class="y-label">80%</div>
+                <div class="y-label">60%</div>
+                <div class="y-label">40%</div>
+                <div class="y-label">20%</div>
+                <div class="y-label">0%</div>
+              </div>
+              <div class="chart-area">
+                <div class="grid-lines horizontal">
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                </div>
+
+                <div class="vertical-bars">
+                  <div class="bar-group">
+                    <div
+                      class="bar-column current"
+                      style="height: 65%"
+                      data-value="65"
+                      data-label="Jan"
+                    >
+                      <div class="bar-tooltip">65%</div>
+                    </div>
+                    <div
+                      class="bar-column previous"
+                      style="height: 45%"
+                      data-value="45"
+                      data-label="Jan"
+                    >
+                      <div class="bar-tooltip">45%</div>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div
+                      class="bar-column current"
+                      style="height: 80%"
+                      data-value="80"
+                      data-label="Feb"
+                    >
+                      <div class="bar-tooltip">80%</div>
+                    </div>
+                    <div
+                      class="bar-column previous"
+                      style="height: 60%"
+                      data-value="60"
+                      data-label="Feb"
+                    >
+                      <div class="bar-tooltip">60%</div>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div
+                      class="bar-column current"
+                      style="height: 45%"
+                      data-value="45"
+                      data-label="Mar"
+                    >
+                      <div class="bar-tooltip">45%</div>
+                    </div>
+                    <div
+                      class="bar-column previous"
+                      style="height: 50%"
+                      data-value="50"
+                      data-label="Mar"
+                    >
+                      <div class="bar-tooltip">50%</div>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div
+                      class="bar-column current"
+                      style="height: 70%"
+                      data-value="70"
+                      data-label="Apr"
+                    >
+                      <div class="bar-tooltip">70%</div>
+                    </div>
+                    <div
+                      class="bar-column previous"
+                      style="height: 55%"
+                      data-value="55"
+                      data-label="Apr"
+                    >
+                      <div class="bar-tooltip">55%</div>
+                    </div>
+                  </div>
+                  <div class="bar-group">
+                    <div
+                      class="bar-column current"
+                      style="height: 90%"
+                      data-value="90"
+                      data-label="May"
+                    >
+                      <div class="bar-tooltip">90%</div>
+                    </div>
+                    <div
+                      class="bar-column previous"
+                      style="height: 65%"
+                      data-value="65"
+                      data-label="May"
+                    >
+                      <div class="bar-tooltip">65%</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="x-axis">
+                  <div class="x-label">Jan</div>
+                  <div class="x-label">Feb</div>
+                  <div class="x-label">Mar</div>
+                  <div class="x-label">Apr</div>
+                  <div class="x-label">May</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span
+                  class="legend-color"
+                  style="
+                    background: linear-gradient(to right, #00e5ff, #0066ff);
+                  "
+                ></span>
+                <span class="legend-label">Current Year</span>
+              </div>
+              <div class="legend-item">
+                <span
+                  class="legend-color"
+                  style="background: rgba(255, 255, 255, 0.2)"
+                ></span>
+                <span class="legend-label">Previous Year</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="widget gauge-widget">
+            <h2 class="widget-title">Forecast Accuracy</h2>
+            <p class="widget-subtitle">Last 30 days</p>
+
+            <div class="gauge-container">
+              <div class="gauge">
+                <div class="gauge-body">
+                  <div class="gauge-fill" id="accuracy-gauge"></div>
+                  <div class="gauge-cover">
+                    <div class="gauge-value">92%</div>
+                    <div class="gauge-label">Accuracy</div>
+                  </div>
+                </div>
+                <div class="gauge-ticks">
+                  <div class="gauge-tick-group">
+                    <div class="gauge-tick"></div>
+                    <div class="gauge-tick-label">0</div>
+                  </div>
+                  <div class="gauge-tick-group">
+                    <div class="gauge-tick"></div>
+                    <div class="gauge-tick-label">25</div>
+                  </div>
+                  <div class="gauge-tick-group">
+                    <div class="gauge-tick"></div>
+                    <div class="gauge-tick-label">50</div>
+                  </div>
+                  <div class="gauge-tick-group">
+                    <div class="gauge-tick"></div>
+                    <div class="gauge-tick-label">75</div>
+                  </div>
+                  <div class="gauge-tick-group">
+                    <div class="gauge-tick"></div>
+                    <div class="gauge-tick-label">100</div>
+                  </div>
+                </div>
+              </div>
+              <div class="gauge-stats">
+                <div class="gauge-stat">
+                  <div class="gauge-stat-value">+4.2%</div>
+                  <div class="gauge-stat-label">vs Last Month</div>
+                </div>
+                <div class="gauge-stat">
+                  <div class="gauge-stat-value">98.5%</div>
+                  <div class="gauge-stat-label">Best Day</div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="widget line-chart-widget">
+          <div class="widget-header">
+            <h2 class="widget-title">E-commerce Performance Metrics</h2>
+            <p class="widget-subtitle">Last 6 months</p>
+
+            <div class="chart-controls">
+              <div class="chart-legend">
+                <div class="legend-item">
+                  <span class="legend-color solid"></span>
+                  <span class="legend-label">Revenue</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-color dashed"></span>
+                  <span class="legend-label">Conversions</span>
+                </div>
+                <div class="legend-item">
+                  <span class="legend-color dotted"></span>
+                  <span class="legend-label">Forecast</span>
+                </div>
+              </div>
+
+              <div class="time-filter">
+                <button class="time-btn" data-period="week">Week</button>
+                <button class="time-btn active" data-period="month">
+                  Month
+                </button>
+                <button class="time-btn" data-period="quarter">Quarter</button>
+                <button class="time-btn" data-period="year">Year</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <div class="line-chart">
+              <div class="y-axis">
+                <div class="y-label">$100k</div>
+                <div class="y-label">$80k</div>
+                <div class="y-label">$60k</div>
+                <div class="y-label">$40k</div>
+                <div class="y-label">$20k</div>
+                <div class="y-label">$0</div>
+              </div>
+              <div class="chart-area">
+                <div class="grid-lines">
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                  <div class="grid-line"></div>
+                </div>
+                <svg
+                  class="chart-svg"
+                  viewBox="0 0 600 300"
+                  preserveAspectRatio="none"
+                >
+                  <!-- Area under solid line -->
+                  <path
+                    class="area-fill solid-area"
+                    d="M0,100 C100,150 200,250 300,150 C400,50 500,100 600,100 L600,300 L0,300 Z"
+                    fill="url(#solid-gradient)"
+                    opacity="0.3"
+                  />
+
+                  <!-- Area under dashed line -->
+                  <path
+                    class="area-fill dashed-area"
+                    d="M0,250 C100,200 200,250 300,100 C400,50 500,150 600,150 L600,300 L0,300 Z"
+                    fill="url(#dashed-gradient)"
+                    opacity="0.2"
+                  />
+
+                  <!-- Forecast area -->
+                  <path
+                    class="area-fill forecast-area"
+                    d="M300,150 C400,120 500,80 600,60 L600,300 L300,300 Z"
+                    fill="url(#forecast-gradient)"
+                    opacity="0.15"
+                    stroke-dasharray="5,5"
+                  />
+
+                  <!-- Solid line (Revenue) -->
+                  <path
+                    class="line solid"
+                    d="M0,100 C100,150 200,250 300,150 C400,50 500,100 600,100"
+                    fill="none"
+                    stroke="url(#line-gradient-solid)"
+                    stroke-width="3"
+                  />
+
+                  <!-- Dashed line (Conversions) -->
+                  <path
+                    class="line dashed"
+                    d="M0,250 C100,200 200,250 300,100 C400,50 500,150 600,150"
+                    fill="none"
+                    stroke="url(#line-gradient-dashed)"
+                    stroke-width="3"
+                    stroke-dasharray="5,5"
+                  />
+
+                  <!-- Dotted line (Forecast) -->
+                  <path
+                    class="line dotted"
+                    d="M300,150 C400,120 500,80 600,60"
+                    fill="none"
+                    stroke="url(#line-gradient-forecast)"
+                    stroke-width="2"
+                    stroke-dasharray="2,2"
+                  />
+
+                  <!-- Forecast divider -->
+                  <line
+                    x1="300"
+                    y1="0"
+                    x2="300"
+                    y2="300"
+                    stroke="rgba(255,255,255,0.2)"
+                    stroke-width="1"
+                    stroke-dasharray="5,5"
+                  />
+                  <text
+                    x="310"
+                    y="20"
+                    fill="rgba(255,255,255,0.5)"
+                    font-size="12"
+                  >
+                    Forecast →
+                  </text>
+
+                  <!-- Gradients -->
+                  <defs>
+                    <linearGradient
+                      id="solid-gradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="0%"
+                      y2="100%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#00E5FF"
+                        stop-opacity="0.7"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#00E5FF"
+                        stop-opacity="0.1"
+                      />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="dashed-gradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="0%"
+                      y2="100%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#4FACFE"
+                        stop-opacity="0.7"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#4FACFE"
+                        stop-opacity="0.1"
+                      />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="forecast-gradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="0%"
+                      y2="100%"
+                    >
+                      <stop
+                        offset="0%"
+                        stop-color="#A18CD1"
+                        stop-opacity="0.7"
+                      />
+                      <stop
+                        offset="100%"
+                        stop-color="#A18CD1"
+                        stop-opacity="0.1"
+                      />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="line-gradient-solid"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stop-color="#00E5FF" />
+                      <stop offset="100%" stop-color="#00BFFF" />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="line-gradient-dashed"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stop-color="#4FACFE" />
+                      <stop offset="100%" stop-color="#00F2FE" />
+                    </linearGradient>
+
+                    <linearGradient
+                      id="line-gradient-forecast"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stop-color="#A18CD1" />
+                      <stop offset="100%" stop-color="#FBC2EB" />
+                    </linearGradient>
+                  </defs>
+
+                  <!-- Data points for solid line with pulse animation -->
+                  <circle
+                    class="data-point solid-point"
+                    cx="0"
+                    cy="100"
+                    r="6"
+                    fill="#00E5FF"
+                    data-value="$42,500"
+                    data-date="Jan"
+                  />
+                  <circle
+                    class="data-point solid-point"
+                    cx="120"
+                    cy="150"
+                    r="6"
+                    fill="#00E5FF"
+                    data-value="$35,200"
+                    data-date="Feb"
+                  />
+                  <circle
+                    class="data-point solid-point"
+                    cx="240"
+                    cy="250"
+                    r="6"
+                    fill="#00E5FF"
+                    data-value="$18,700"
+                    data-date="Mar"
+                  />
+                  <circle
+                    class="data-point solid-point"
+                    cx="300"
+                    cy="150"
+                    r="6"
+                    fill="#00E5FF"
+                    data-value="$35,800"
+                    data-date="Apr"
+                  />
+                  <circle
+                    class="data-point solid-point"
+                    cx="420"
+                    cy="50"
+                    r="6"
+                    fill="#00E5FF"
+                    data-value="$67,300"
+                    data-date="May"
+                  />
+                  <circle
+                    class="data-point solid-point"
+                    cx="600"
+                    cy="100"
+                    r="6"
+                    fill="#00E5FF"
+                    data-value="$42,100"
+                    data-date="Jun"
+                  />
+
+                  <!-- Data points for dashed line with pulse animation -->
+                  <circle
+                    class="data-point dashed-point"
+                    cx="0"
+                    cy="250"
+                    r="6"
+                    fill="#4FACFE"
+                    data-value="1,250"
+                    data-date="Jan"
+                  />
+                  <circle
+                    class="data-point dashed-point"
+                    cx="120"
+                    cy="200"
+                    r="6"
+                    fill="#4FACFE"
+                    data-value="2,100"
+                    data-date="Feb"
+                  />
+                  <circle
+                    class="data-point dashed-point"
+                    cx="240"
+                    cy="250"
+                    r="6"
+                    fill="#4FACFE"
+                    data-value="1,300"
+                    data-date="Mar"
+                  />
+                  <circle
+                    class="data-point dashed-point"
+                    cx="300"
+                    cy="100"
+                    r="6"
+                    fill="#4FACFE"
+                    data-value="4,200"
+                    data-date="Apr"
+                  />
+                  <circle
+                    class="data-point dashed-point"
+                    cx="450"
+                    cy="50"
+                    r="6"
+                    fill="#4FACFE"
+                    data-value="5,100"
+                    data-date="May"
+                  />
+                  <circle
+                    class="data-point dashed-point"
+                    cx="600"
+                    cy="150"
+                    r="6"
+                    fill="#4FACFE"
+                    data-value="3,050"
+                    data-date="Jun"
+                  />
+
+                  <!-- Forecast points -->
+                  <circle
+                    class="data-point forecast-point"
+                    cx="300"
+                    cy="150"
+                    r="5"
+                    fill="#A18CD1"
+                    data-value="$35,800"
+                    data-date="Apr"
+                  />
+                  <circle
+                    class="data-point forecast-point"
+                    cx="420"
+                    cy="120"
+                    r="5"
+                    fill="#A18CD1"
+                    data-value="$39,200"
+                    data-date="May"
+                  />
+                  <circle
+                    class="data-point forecast-point"
+                    cx="540"
+                    cy="80"
+                    r="5"
+                    fill="#A18CD1"
+                    data-value="$45,600"
+                    data-date="Jun"
+                  />
+                  <circle
+                    class="data-point forecast-point"
+                    cx="600"
+                    cy="60"
+                    r="5"
+                    fill="#A18CD1"
+                    data-value="$48,900"
+                    data-date="Jul"
+                  />
+                </svg>
+
+                <!-- Tooltip that will be shown on hover -->
+                <div class="chart-tooltip" id="chart-tooltip">
+                  <div class="tooltip-date">
+                    Month: <span id="tooltip-date">Jan</span>
+                  </div>
+                  <div class="tooltip-value">
+                    Value: <span id="tooltip-value">$42,500</span>
+                  </div>
+                </div>
+
+                <div class="x-axis">
+                  <div class="x-label">Jan</div>
+                  <div class="x-label">Feb</div>
+                  <div class="x-label">Mar</div>
+                  <div class="x-label">Apr</div>
+                  <div class="x-label">May</div>
+                  <div class="x-label">Jun</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chart-insights">
+            <div class="insight-card">
+              <div class="insight-icon positive">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                  <polyline points="17 6 23 6 23 12"></polyline>
+                </svg>
+              </div>
+              <div class="insight-content">
+                <div class="insight-value">+24.8%</div>
+                <div class="insight-label">Revenue Growth</div>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-icon positive">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+              <div class="insight-content">
+                <div class="insight-value">98.2%</div>
+                <div class="insight-label">Forecast Accuracy</div>
+              </div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-icon negative">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="23 18 13.5 8.5 8.5 13.5 1 6"></polyline>
+                  <polyline points="17 18 23 18 23 12"></polyline>
+                </svg>
+              </div>
+              <div class="insight-content">
+                <div class="insight-value">-3.2%</div>
+                <div class="insight-label">Conversion Rate</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="../script.js"></script>
+  </body>
+</html>

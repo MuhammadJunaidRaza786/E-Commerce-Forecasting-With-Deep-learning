@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="news.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-button" aria-label="Menu" id="mobile-menu-toggle">
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                </button>
+                <div class="user-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#666">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                    </svg>
+                </div>
+                <input type="text" class="search-input" placeholder="Search news...">
+            </div>
+            <div class="header-right">
+                <button class="icon-button help-button" aria-label="Help">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path>
+                    </svg>
+                </button>
+                <button class="icon-button settings-button" aria-label="Settings">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="nav-tabs" id="main-nav">
+            <a href="index.html"><button class="nav-tab">Dashboard</button></a>
+            <button class="nav-tab">Target</button>
+            <a href="charts.html"><button class="nav-tab">Charts</button></a>
+            <button class="nav-tab active">News</button>
+            <a href="about.html"><button class="nav-tab">About Us</button></a>
+            <a href="contact.html"><button class="nav-tab">Contact</button></a>
+        </nav>
+
+        <main class="content">
+            <div class="page-header">
+                <h1 class="page-title">Latest News</h1>
+                <div class="news-filter">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="technology">Technology</button>
+                    <button class="filter-btn" data-filter="business">Business</button>
+                    <button class="filter-btn" data-filter="finance">Finance</button>
+                    <button class="filter-btn" data-filter="markets">Markets</button>
+                </div>
+            </div>
+
+            <!-- Featured News Section -->
+            <section class="featured-news">
+                <div class="featured-news-card">
+                    <div class="featured-image">
+                        <div class="category-badge technology">Technology</div>
+                        <img src="https://via.placeholder.com/800x400" alt="Featured news image">
+                    </div>
+                    <div class="featured-content">
+                        <div class="news-meta">
+                            <span class="news-date">April 17, 2025</span>
+                            <span class="news-reading-time">5 min read</span>
+                        </div>
+                        <h2 class="featured-title">AI Revolution: How Machine Learning is Transforming Industries</h2>
+                        <p class="featured-excerpt">Artificial intelligence and machine learning technologies are rapidly changing how businesses operate across all sectors, from healthcare to finance.</p>
+                        <div class="news-actions">
+                            <button class="action-button read-more">Read More</button>
+                            <div class="action-icons">
+                                <button class="action-icon bookmark" aria-label="Bookmark">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-icon share" aria-label="Share">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Grid Section -->
+            <section class="news-grid">
+                <!-- News Item 1 -->
+                <article class="news-card" data-category="business">
+                    <div class="news-image">
+                        <div class="category-badge business">Business</div>
+                        <img src="https://via.placeholder.com/400x250" alt="News image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">April 16, 2025</span>
+                            <span class="news-reading-time">3 min read</span>
+                        </div>
+                        <h3 class="news-title">Global Supply Chain Disruptions Expected to Ease by Q3</h3>
+                        <p class="news-excerpt">Experts predict that the ongoing supply chain issues affecting global markets will begin to resolve in the third quarter.</p>
+                        <div class="news-actions">
+                            <button class="action-button read-more-sm">Read More</button>
+                            <div class="action-icons">
+                                <button class="action-icon bookmark" aria-label="Bookmark">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-icon share" aria-label="Share">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 2 -->
+                <article class="news-card" data-category="finance">
+                    <div class="news-image">
+                        <div class="category-badge finance">Finance</div>
+                        <img src="https://via.placeholder.com/400x250" alt="News image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">April 15, 2025</span>
+                            <span class="news-reading-time">4 min read</span>
+                        </div>
+                        <h3 class="news-title">Central Banks Consider New Approach to Inflation Targeting</h3>
+                        <p class="news-excerpt">Major central banks are reviewing their inflation targeting frameworks in response to changing economic conditions.</p>
+                        <div class="news-actions">
+                            <button class="action-button read-more-sm">Read More</button>
+                            <div class="action-icons">
+                                <button class="action-icon bookmark" aria-label="Bookmark">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-icon share" aria-label="Share">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 3 -->
+                <article class="news-card" data-category="technology">
+                    <div class="news-image">
+                        <div class="category-badge technology">Technology</div>
+                        <img src="https://via.placeholder.com/400x250" alt="News image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">April 14, 2025</span>
+                            <span class="news-reading-time">6 min read</span>
+                        </div>
+                        <h3 class="news-title">Quantum Computing Breakthrough Could Accelerate Development</h3>
+                        <p class="news-excerpt">Scientists have achieved a significant milestone in quantum computing that may lead to practical applications sooner than expected.</p>
+                        <div class="news-actions">
+                            <button class="action-button read-more-sm">Read More</button>
+                            <div class="action-icons">
+                                <button class="action-icon bookmark" aria-label="Bookmark">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-icon share" aria-label="Share">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 4 -->
+                <article class="news-card" data-category="markets">
+                    <div class="news-image">
+                        <div class="category-badge markets">Markets</div>
+                        <img src="https://via.placeholder.com/400x250" alt="News image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">April 13, 2025</span>
+                            <span class="news-reading-time">3 min read</span>
+                        </div>
+                        <h3 class="news-title">Asian Markets Rally as Trade Tensions Ease</h3>
+                        <p class="news-excerpt">Stock markets across Asia posted significant gains following reports of progress in international trade negotiations.</p>
+                        <div class="news-actions">
+                            <button class="action-button read-more-sm">Read More</button>
+                            <div class="action-icons">
+                                <button class="action-icon bookmark" aria-label="Bookmark">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-icon share" aria-label="Share">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 5 -->
+                <article class="news-card" data-category="business">
+                    <div class="news-image">
+                        <div class="category-badge business">Business</div>
+                        <img src="https://via.placeholder.com/400x250" alt="News image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">April 12, 2025</span>
+                            <span class="news-reading-time">5 min read</span>
+                        </div>
+                        <h3 class="news-title">Sustainable Business Practices Drive Investor Interest</h3>
+                        <p class="news-excerpt">Companies with strong environmental, social, and governance (ESG) credentials are attracting increased investment.</p>
+                        <div class="news-actions">
+                            <button class="action-button read-more-sm">Read More</button>
+                            <div class="action-icons">
+                                <button class="action-icon bookmark" aria-label="Bookmark">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-icon share" aria-label="Share">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- News Item 6 -->
+                <article class="news-card" data-category="technology">
+                    <div class="news-image">
+                        <div class="category-badge technology">Technology</div>
+                        <img src="https://via.placeholder.com/400x250" alt="News image">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-meta">
+                            <span class="news-date">April 11, 2025</span>
+                            <span class="news-reading-time">4 min read</span>
+                        </div>
+                        <h3 class="news-title">Next-Generation Batteries Promise Longer Device Life</h3>
+                        <p class="news-excerpt">Researchers have developed a new battery technology that could double the battery life of smartphones and electric vehicles.</p>
+                        <div class="news-actions">
+                            <button class="action-button read-more-sm">Read More</button>
+                            <div class="action-icons">
+                                <button class="action-icon bookmark" aria-label="Bookmark">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                                    </svg>
+                                </button>
+                                <button class="action-icon share" aria-label="Share">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="18" cy="5" r="3"></circle>
+                                        <circle cx="6" cy="12" r="3"></circle>
+                                        <circle cx="18" cy="19" r="3"></circle>
+                                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Load More Button -->
+            <div class="load-more-container">
+                <button class="load-more-button">
+                    Load More News
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Newsletter Subscription -->
+            <section class="newsletter-section">
+                <div class="newsletter-content">
+                    <h2 class="newsletter-title">Stay Updated</h2>
+                    <p class="newsletter-description">Subscribe to our newsletter to receive the latest news and updates directly in your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                        <button type="submit" class="newsletter-button">Subscribe</button>
+                    </form>
+                </div>
+                <div class="newsletter-decoration">
+                    <svg width="150" height="150" viewBox="0 0 24 24" fill="none" stroke="rgba(0, 229, 255, 0.2)" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="news.js"></script>
+</body>
+</html>

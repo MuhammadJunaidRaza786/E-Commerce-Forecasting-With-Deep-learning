@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charts Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="charts.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+</head>
+<body>
+    <div class="dashboard">
+        <header class="header">
+            <div class="header-left">
+                <button class="menu-button" aria-label="Menu" id="mobile-menu-toggle">
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                    <span class="menu-icon"></span>
+                </button>
+                <div class="user-icon">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="search-container">
+                <div class="search-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="#666">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                    </svg>
+                </div>
+                <input type="text" class="search-input" placeholder="Search...">
+            </div>
+            <div class="header-right">
+                <button class="icon-button help-button" aria-label="Help">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"></path>
+                    </svg>
+                </button>
+                <button class="icon-button settings-button" aria-label="Settings">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+                        <path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z"></path>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <nav class="nav-tabs" id="main-nav">
+            <a href="index.html"><button class="nav-tab">Dashboard</button></a>
+            <button class="nav-tab">Target</button>
+            <button class="nav-tab active">Charts</button>
+            <a href="news.html"><button class="nav-tab">News</button></a>
+            <a href="about.html"><button class="nav-tab">About Us</button></a>
+            <a href="contact.html"><button class="nav-tab">Contact</button></a>
+        </nav>
+
+        <main class="content">
+            <div class="page-header">
+                <h1 class="page-title">Data Visualization</h1>
+                <div class="time-filter">
+                    <button class="time-btn active">Day</button>
+                    <button class="time-btn">Week</button>
+                    <button class="time-btn">Month</button>
+                    <button class="time-btn">Year</button>
+                </div>
+            </div>
+
+            <div class="charts-grid">
+                <!-- Line Chart -->
+                <section class="widget chart-widget">
+                    <div class="widget-header">
+                        <h2 class="widget-title">Revenue Trends</h2>
+                        <div class="widget-actions">
+                            <button class="action-btn" aria-label="Download">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                            <button class="action-btn" aria-label="More options">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="19" cy="12" r="1"></circle>
+                                    <circle cx="5" cy="12" r="1"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="line-chart">
+                            <div class="y-axis">
+                                <div class="y-label">100</div>
+                                <div class="y-label">80</div>
+                                <div class="y-label">60</div>
+                                <div class="y-label">40</div>
+                                <div class="y-label">20</div>
+                                <div class="y-label">0</div>
+                            </div>
+                            <div class="chart-area">
+                                <div class="grid-lines">
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                </div>
+                                <svg class="chart-svg" viewBox="0 0 600 300" preserveAspectRatio="none">
+                                    <!-- Area under line -->
+                                    <path class="area-fill" d="M0,200 C100,180 200,100 300,120 C400,140 500,80 600,60 L600,300 L0,300 Z" fill="url(#line-gradient-area)" opacity="0.3" />
+                                    
+                                    <!-- Line -->
+                                    <path class="line" d="M0,200 C100,180 200,100 300,120 C400,140 500,80 600,60" fill="none" stroke="url(#line-gradient)" stroke-width="3" />
+                                    
+                                    <!-- Gradients -->
+                                    <defs>
+                                        <linearGradient id="line-gradient-area" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.7" />
+                                            <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.1" />
+                                        </linearGradient>
+                                        
+                                        <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="#00E5FF" />
+                                            <stop offset="100%" stop-color="#00BFFF" />
+                                        </linearGradient>
+                                    </defs>
+                                    
+                                    <!-- Data points -->
+                                    <circle class="data-point" cx="0" cy="200" r="5" fill="#00E5FF" data-value="33" />
+                                    <circle class="data-point" cx="120" cy="180" r="5" fill="#00E5FF" data-value="40" />
+                                    <circle class="data-point" cx="240" cy="100" r="5" fill="#00E5FF" data-value="67" />
+                                    <circle class="data-point" cx="360" cy="120" r="5" fill="#00E5FF" data-value="60" />
+                                    <circle class="data-point" cx="480" cy="80" r="5" fill="#00E5FF" data-value="73" />
+                                    <circle class="data-point" cx="600" cy="60" r="5" fill="#00E5FF" data-value="80" />
+                                </svg>
+                                
+                                <!-- Tooltip -->
+                                <div class="chart-tooltip" id="line-tooltip">
+                                    <div class="tooltip-date">Date: <span id="line-tooltip-date">Jan 1</span></div>
+                                    <div class="tooltip-value">Value: <span id="line-tooltip-value">75</span></div>
+                                </div>
+                                
+                                <div class="x-axis">
+                                    <div class="x-label">Jan</div>
+                                    <div class="x-label">Feb</div>
+                                    <div class="x-label">Mar</div>
+                                    <div class="x-label">Apr</div>
+                                    <div class="x-label">May</div>
+                                    <div class="x-label">Jun</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Bar Chart -->
+                <section class="widget chart-widget">
+                    <div class="widget-header">
+                        <h2 class="widget-title">Monthly Sales</h2>
+                        <div class="widget-actions">
+                            <button class="action-btn" aria-label="Download">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                            <button class="action-btn" aria-label="More options">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="19" cy="12" r="1"></circle>
+                                    <circle cx="5" cy="12" r="1"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="bar-chart-container">
+                            <div class="y-axis">
+                                <div class="y-label">100</div>
+                                <div class="y-label">80</div>
+                                <div class="y-label">60</div>
+                                <div class="y-label">40</div>
+                                <div class="y-label">20</div>
+                                <div class="y-label">0</div>
+                            </div>
+                            <div class="chart-area">
+                                <div class="grid-lines horizontal">
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                </div>
+                                
+                                <div class="vertical-bars">
+                                    <div class="bar-group">
+                                        <div class="bar-column" style="height: 65%;" data-value="65" data-label="Jan">
+                                            <div class="bar-tooltip">65</div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar-column" style="height: 80%;" data-value="80" data-label="Feb">
+                                            <div class="bar-tooltip">80</div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar-column" style="height: 45%;" data-value="45" data-label="Mar">
+                                            <div class="bar-tooltip">45</div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar-column" style="height: 70%;" data-value="70" data-label="Apr">
+                                            <div class="bar-tooltip">70</div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar-column" style="height: 90%;" data-value="90" data-label="May">
+                                            <div class="bar-tooltip">90</div>
+                                        </div>
+                                    </div>
+                                    <div class="bar-group">
+                                        <div class="bar-column" style="height: 55%;" data-value="55" data-label="Jun">
+                                            <div class="bar-tooltip">55</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="x-axis">
+                                    <div class="x-label">Jan</div>
+                                    <div class="x-label">Feb</div>
+                                    <div class="x-label">Mar</div>
+                                    <div class="x-label">Apr</div>
+                                    <div class="x-label">May</div>
+                                    <div class="x-label">Jun</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Donut Chart -->
+                <section class="widget chart-widget">
+                    <div class="widget-header">
+                        <h2 class="widget-title">Traffic Sources</h2>
+                        <div class="widget-actions">
+                            <button class="action-btn" aria-label="Download">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                            <button class="action-btn" aria-label="More options">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="19" cy="12" r="1"></circle>
+                                    <circle cx="5" cy="12" r="1"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container donut-container">
+                        <div class="donut-chart">
+                            <svg viewBox="0 0 100 100" class="donut">
+                                <circle class="donut-hole" cx="50" cy="50" r="30" fill="#2A1E5C"></circle>
+                                <circle class="donut-ring" cx="50" cy="50" r="40" fill="transparent" stroke="#2A1E5C" stroke-width="10"></circle>
+                                
+                                <!-- Donut segments -->
+                                <circle class="donut-segment" cx="50" cy="50" r="40" fill="transparent" stroke="#00E5FF" stroke-width="10" stroke-dasharray="40 60" stroke-dashoffset="0" data-value="40" data-label="Direct"></circle>
+                                <circle class="donut-segment" cx="50" cy="50" r="40" fill="transparent" stroke="#4FACFE" stroke-width="10" stroke-dasharray="25 75" stroke-dashoffset="40" data-value="25" data-label="Social"></circle>
+                                <circle class="donut-segment" cx="50" cy="50" r="40" fill="transparent" stroke="#00F2FE" stroke-width="10" stroke-dasharray="20 80" stroke-dashoffset="65" data-value="20" data-label="Email"></circle>
+                                <circle class="donut-segment" cx="50" cy="50" r="40" fill="transparent" stroke="#0066FF" stroke-width="10" stroke-dasharray="15 85" stroke-dashoffset="85" data-value="15" data-label="Other"></circle>
+                            </svg>
+                            
+                            <div class="donut-center">
+                                <div class="donut-value">40%</div>
+                                <div class="donut-label">Direct</div>
+                            </div>
+                            
+                            <div class="donut-tooltip" id="donut-tooltip">
+                                <div class="tooltip-label">Source: <span id="donut-tooltip-label">Direct</span></div>
+                                <div class="tooltip-value">Value: <span id="donut-tooltip-value">40%</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="donut-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #00E5FF;"></span>
+                                <span class="legend-label">Direct</span>
+                                <span class="legend-value">40%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #4FACFE;"></span>
+                                <span class="legend-label">Social</span>
+                                <span class="legend-value">25%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #00F2FE;"></span>
+                                <span class="legend-label">Email</span>
+                                <span class="legend-value">20%</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #0066FF;"></span>
+                                <span class="legend-label">Other</span>
+                                <span class="legend-value">15%</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Area Chart -->
+                <section class="widget chart-widget">
+                    <div class="widget-header">
+                        <h2 class="widget-title">User Engagement</h2>
+                        <div class="widget-actions">
+                            <button class="action-btn" aria-label="Download">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                            <button class="action-btn" aria-label="More options">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="19" cy="12" r="1"></circle>
+                                    <circle cx="5" cy="12" r="1"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #00E5FF;"></span>
+                                <span class="legend-label">New Users</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #4FACFE;"></span>
+                                <span class="legend-label">Returning Users</span>
+                            </div>
+                        </div>
+                        
+                        <div class="area-chart">
+                            <div class="y-axis">
+                                <div class="y-label">100</div>
+                                <div class="y-label">80</div>
+                                <div class="y-label">60</div>
+                                <div class="y-label">40</div>
+                                <div class="y-label">20</div>
+                                <div class="y-label">0</div>
+                            </div>
+                            <div class="chart-area">
+                                <div class="grid-lines">
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                </div>
+                                <svg class="chart-svg" viewBox="0 0 600 300" preserveAspectRatio="none">
+                                    <!-- Area 1 -->
+                                    <path class="area-fill" d="M0,150 C100,120 200,100 300,80 C400,60 500,90 600,70 L600,300 L0,300 Z" fill="url(#area1-gradient)" opacity="0.5" />
+                                    
+                                    <!-- Area 2 -->
+                                    <path class="area-fill" d="M0,200 C100,220 200,180 300,190 C400,200 500,170 600,180 L600,300 L0,300 Z" fill="url(#area2-gradient)" opacity="0.5" />
+                                    
+                                    <!-- Line 1 -->
+                                    <path class="line" d="M0,150 C100,120 200,100 300,80 C400,60 500,90 600,70" fill="none" stroke="#00E5FF" stroke-width="2" />
+                                    
+                                    <!-- Line 2 -->
+                                    <path class="line" d="M0,200 C100,220 200,180 300,190 C400,200 500,170 600,180" fill="none" stroke="#4FACFE" stroke-width="2" />
+                                    
+                                    <!-- Gradients -->
+                                    <defs>
+                                        <linearGradient id="area1-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.7" />
+                                            <stop offset="100%" stop-color="#00E5FF" stop-opacity="0.1" />
+                                        </linearGradient>
+                                        
+                                        <linearGradient id="area2-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                            <stop offset="0%" stop-color="#4FACFE" stop-opacity="0.7" />
+                                            <stop offset="100%" stop-color="#4FACFE" stop-opacity="0.1" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                
+                                <div class="x-axis">
+                                    <div class="x-label">Jan</div>
+                                    <div class="x-label">Feb</div>
+                                    <div class="x-label">Mar</div>
+                                    <div class="x-label">Apr</div>
+                                    <div class="x-label">May</div>
+                                    <div class="x-label">Jun</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Radar Chart -->
+                <section class="widget chart-widget">
+                    <div class="widget-header">
+                        <h2 class="widget-title">Performance Metrics</h2>
+                        <div class="widget-actions">
+                            <button class="action-btn" aria-label="Download">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                            <button class="action-btn" aria-label="More options">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="19" cy="12" r="1"></circle>
+                                    <circle cx="5" cy="12" r="1"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container radar-container">
+                        <div class="radar-chart">
+                            <svg viewBox="0 0 200 200" class="radar-svg">
+                                <!-- Background grid -->
+                                <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(255, 255, 255, 0.1)" />
+                                <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(255, 255, 255, 0.1)" />
+                                <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(255, 255, 255, 0.1)" />255,255,0.1)" />
+                                <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(255, 255, 255, 0.1)" />
+                                <circle cx="100" cy="100" r="20" fill="none" stroke="rgba(255, 255, 255, 0.1)" />
+                                
+                                <!-- Axis lines -->
+                                <line x1="100" y1="20" x2="100" y2="180" stroke="rgba(255, 255, 255, 0.2)" />
+                                <line x1="20" y1="100" x2="180" y2="100" stroke="rgba(255, 255, 255, 0.2)" />
+                                <line x1="37" y1="37" x2="163" y2="163" stroke="rgba(255, 255, 255, 0.2)" />
+                                <line x1="37" y1="163" x2="163" y2="37" stroke=" 255, 255, 0.2)" />
+                                
+                                <!-- Data polygon -->
+                                <polygon points="100,30 160,70 140,150 60,150 40,70" fill="rgba(0, 229, 255, 0.3)" stroke="#00E5FF" stroke-width="2" />
+                                
+                                <!-- Data points -->
+                                <circle cx="100" cy="30" r="4" fill="#00E5FF" />
+                                <circle cx="160" cy="70" r="4" fill="#00E5FF" />
+                                <circle cx="140" cy="150" r="4" fill="#00E5FF" />
+                                <circle cx="60" cy="150" r="4" fill="#00E5FF" />
+                                <circle cx="40" cy="70" r="4" fill="#00E5FF" />
+                                
+                                <!-- Labels -->
+                                <text x="100" y="15" text-anchor="middle" fill="white" font-size="8">Speed</text>
+                                <text x="185" y="100" text-anchor="start" fill="white" font-size="8">Efficiency</text>
+                                <text x="140" y="175" text-anchor="middle" fill="white" font-size="8">Quality</text>
+                                <text x="60" y="175" text-anchor="middle" fill="white" font-size="8">Reliability</text>
+                                <text x="15" y="100" text-anchor="end" fill="white" font-size="8">Cost</text>
+                            </svg>
+                        </div>
+                        
+                        <div class="radar-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background-color: #00E5FF;"></span>
+                                <span class="legend-label">Current Period</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Scatter Plot -->
+                <section class="widget chart-widget">
+                    <div class="widget-header">
+                        <h2 class="widget-title">Conversion Rate vs Time Spent</h2>
+                        <div class="widget-actions">
+                            <button class="action-btn" aria-label="Download">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="7 10 12 15 17 10"></polyline>
+                                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                                </svg>
+                            </button>
+                            <button class="action-btn" aria-label="More options">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="1"></circle>
+                                    <circle cx="19" cy="12" r="1"></circle>
+                                    <circle cx="5" cy="12" r="1"></circle>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <div class="scatter-chart">
+                            <div class="y-axis">
+                                <div class="y-label">10%</div>
+                                <div class="y-label">8%</div>
+                                <div class="y-label">6%</div>
+                                <div class="y-label">4%</div>
+                                <div class="y-label">2%</div>
+                                <div class="y-label">0%</div>
+                            </div>
+                            <div class="chart-area">
+                                <div class="grid-lines">
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                    <div class="grid-line"></div>
+                                </div>
+                                <svg class="chart-svg" viewBox="0 0 600 300" preserveAspectRatio="none">
+                                    <!-- Scatter points -->
+                                    <circle class="scatter-point" cx="50" cy="250" r="6" fill="url(#scatter-gradient)" data-x="1" data-y="2" />
+                                    <circle class="scatter-point" cx="120" cy="200" r="8" fill="url(#scatter-gradient)" data-x="2" data-y="4" />
+                                    <circle class="scatter-point" cx="200" cy="150" r="10" fill="url(#scatter-gradient)" data-x="3" data-y="6" />
+                                    <circle class="scatter-point" cx="280" cy="180" r="7" fill="url(#scatter-gradient)" data-x="4" data-y="5" />
+                                    <circle class="scatter-point" cx="350" cy="120" r="9" fill="url(#scatter-gradient)" data-x="5" data-y="7" />
+                                    <circle class="scatter-point" cx="420" cy="100" r="12" fill="url(#scatter-gradient)" data-x="6" data-y="8" />
+                                    <circle class="scatter-point" cx="500" cy="80" r="14" fill="url(#scatter-gradient)" data-x="7" data-y="9" />
+                                    <circle class="scatter-point" cx="550" cy="50" r="11" fill="url(#scatter-gradient)" data-x="8" data-y="10" />
+                                    
+                                    <!-- Trend line -->
+                                    <path class="trend-line" d="M50,250 L550,50" stroke="#00E5FF" stroke-width="2" stroke-dasharray="5,5" />
+                                    
+                                    <!-- Gradient for points -->
+                                    <defs>
+                                        <radialGradient id="scatter-gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                                            <stop offset="0%" stop-color="#00E5FF" stop-opacity="1" />
+                                            <stop offset="100%" stop-color="#0066FF" stop-opacity="0.6" />
+                                        </radialGradient>
+                                    </defs>
+                                </svg>
+                                
+                                <!-- Tooltip -->
+                                <div class="chart-tooltip" id="scatter-tooltip">
+                                    <div class="tooltip-x">Time: <span id="scatter-tooltip-x">5 min</span></div>
+                                    <div class="tooltip-y">Conversion: <span id="scatter-tooltip-y">7%</span></div>
+                                
+                                <div class="x-axis">
+                                    <div class="x-label">1 min</div>
+                                    <div class="x-label">2 min</div>
+                                    <div class="x-label">3 min</div>
+                                    <div class="x-label">4 min</div>
+                                    <div class="x-label">5+ min</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="charts.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
